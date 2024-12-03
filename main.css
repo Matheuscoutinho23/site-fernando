@@ -1,0 +1,333 @@
+/* Geral - Reset de Margem e Padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo e Fonte Base */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Navbar */
+nav {
+    display: flex; /* Usar flexbox para alinhar os itens */
+    justify-content: space-between; /* Espaça a logo e os itens do menu */
+    align-items: center; /* Alinha verticalmente os itens */
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%; /* A navbar ocupa toda a largura da tela */
+    background-color: #333; /* Cor de fundo da navbar */
+    padding: 1rem 2rem; /* Adiciona preenchimento interno */
+    z-index: 1000;  /* Garante que a navbar fique acima de outros elementos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra para destacar a navbar */
+}
+
+nav .logo img {
+    width: 70px; /* Tamanho da logo */
+}
+
+/* Alinha os itens da lista à direita */
+nav ul {
+    display: flex; /* Usar flexbox para alinhar os itens da lista */
+    list-style-type: none; /* Remove as bolinhas da lista */
+    margin-left: auto; /* Empurra os itens para o lado direito */
+}
+
+nav ul li {
+    margin: 0 15px; /* Espaço entre os itens */
+}
+
+nav ul li a {
+    text-decoration: none; /* Remove o sublinhado dos links */
+    color: white; /* Cor do texto dos links */
+    font-size: 1.1rem; /* Tamanho da fonte */
+}
+
+nav ul li a:hover {
+    color: #f4a261; /* Cor de destaque ao passar o mouse */
+}
+
+
+
+/* Hero Section */
+.hero {
+    background-image: url('imagem\ de\ fundo\ adv.jpg'); /* Substitua pelo caminho da sua imagem */
+    background-size: cover; /* A imagem cobre toda a área sem repetir */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede que a imagem se repita */
+    background-attachment: fixed; /* Imagem de fundo fixa (efeito parallax) */
+    color: white; /* Cor do texto */
+    padding: 100px 20px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o texto */
+    position: relative; /* Necessário para o posicionamento absoluto do texto */
+    height: 100vh; /* Altura da seção é igual à altura da tela */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Alinha o texto verticalmente no meio */
+    align-items: center; /* Alinha o texto horizontalmente no meio */
+}
+
+/* Estilo para o título */
+.hero h1 {
+    font-size: 3rem;
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombras para destacar o texto */
+}
+
+/* Estilo para o parágrafo */
+.hero p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombras para o texto */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero {
+        height: 60vh; /* Reduz a altura da seção em telas pequenas */
+    }
+
+    .hero h1 {
+        font-size: 2rem; /* Ajusta o tamanho da fonte do título */
+    }
+
+    .hero p {
+        font-size: 1.2rem; /* Ajusta o tamanho da fonte do parágrafo */
+    }
+}
+
+
+
+
+/* Definição da animação */
+@keyframes moveBackground {
+    0% {
+        background-position: center;
+    }
+    50% {
+        background-position: right center;
+    }
+    100% {
+        background-position: center;
+    }
+}
+
+
+/* Cards */
+.cards-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #f8f8f8;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 8px;
+    width: 280px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.card .btn {
+    display: inline-block;
+    background-color: #f4a261;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.card .btn:hover {
+    background-color: #e76f51;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+}
+
+.modal-close {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.modal h2 {
+    margin-bottom: 15px;
+}
+
+.modal p {
+    font-size: 1rem;
+}
+
+/* Estilo para a seção de contato */
+.contact {
+    text-align: center; /* Alinha o título e os botões no centro */
+    padding: 50px 20px; /* Espaçamento interno */
+    background-color: #f9f9f9; /* Cor de fundo da seção */
+}
+
+.contact h2 {
+    font-size: 2rem; /* Tamanho da fonte do título */
+    margin-bottom: 30px; /* Espaço abaixo do título */
+    color: #333; /* Cor do título */
+}
+
+/* Estilo comum para todos os botões de contato */
+.contact-btn {
+    display: inline-flex; /* Flexbox para alinhar o ícone e o texto */
+    align-items: center;
+    padding: 12px 25px; /* Espaçamento interno */
+    font-size: 1.2rem;
+    color: white; /* Cor do texto */
+    border-radius: 30px; /* Bordas arredondadas */
+    text-decoration: none; /* Remove o sublinhado do link */
+    margin: 10px; /* Espaço entre os botões */
+    transition: all 0.3s ease; /* Transição suave ao passar o mouse */
+}
+
+/* Ícone dentro do botão */
+.contact-btn i {
+    margin-right: 8px; /* Espaço entre o ícone e o texto */
+}
+
+/* Estilo específico para o botão do WhatsApp */
+.contact-btn.whatsapp {
+    background-color: #25D366; /* Cor verde do WhatsApp */
+}
+
+/* Estilo específico para o botão do Instagram */
+.contact-btn.instagram {
+    background-color: #E4405F; /* Cor vermelha do Instagram */
+}
+
+/* Efeito hover para os botões */
+.contact-btn:hover {
+    background-color: #f4d5bb; /* Cor de fundo quando o mouse passa por cima */
+    color: white; /* Cor do texto ao passar o mouse */
+}
+
+/* Efeito hover para o ícone de WhatsApp */
+.contact-btn.whatsapp:hover i {
+    color: white; /* Cor do ícone do WhatsApp quando o mouse passa por cima */
+}
+
+/* Efeito hover para o ícone de Instagram */
+.contact-btn.instagram:hover i {
+    color: white; /* Cor do ícone do Instagram quando o mouse passa por cima */
+}
+
+
+/* Rodapé */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Media Queries para Responsividade */
+
+/* Para telas pequenas (móveis) */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav .logo img {
+        width: 80px;
+    }
+
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+    }
+
+    .contact-buttons {
+        flex-direction: column;
+    }
+
+    .contact-btn {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    footer {
+        position: static;
+    }
+}
+
+/* Para telas muito pequenas (celulares em orientação vertical) */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .card h3 {
+        font-size: 1.4rem;
+    }
+
+    .contact-btn {
+        font-size: 1rem;
+    }
+}
