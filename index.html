@@ -5,110 +5,189 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site de Advocacia</title>
     <link rel="stylesheet" href="main.css">
-    <!-- Link para o Font Awesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="imagens/favicon.ico" type="image/x-icon">
 </head>
 <body>
+
+<!-- Corpo com id no topo -->
+<div id="inicio"></div>
 
 <!-- Navbar -->
 <nav>
     <div class="logo">
         <img src="imagem logo.png" alt="Logo">
     </div>
-    <ul>
-        <li><a href="#inicio">Início</a></li>
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#contato">Contato</a></li>
-        <li><a href="https://noticias.uol.com.br/">Notícias</a></li> <!-- Novo link para a página de notícias -->
+    <ul id="navbar" class="navbar">
+        <li><a href="#inicio">Início</a></li> <!-- Link para rolar para o topo -->
+        <li><a href="https://noticias.uol.com.br/">Notícias</a></li>
     </ul>
 </nav>
 
-    <!-- Corpo com imagem de fundo -->
-    <div class="hero">
-        <h1>Bem-vindo ao nosso Escritório de Advocacia</h1>
-        <p>Fornecemos soluções jurídicas eficientes e confiáveis</p>
-    </div>
 
-    <!-- Cards -->
-    <div class="cards-container" id="servicos">
-        <div class="card">
-            <h3>Consultoria Jurídica</h3>
-            <p>Oferecemos consultoria personalizada para diversos casos.</p>
-            <a href="#" class="btn" onclick="openModal('modal1')">Saiba Mais</a>
-        </div>
-        <div class="card">
-            <h3>Defesa Criminal</h3>
-            <p>Proteja seus direitos com a nossa defesa especializada.</p>
-            <a href="#" class="btn" onclick="openModal('modal2')">Saiba Mais</a>
-        </div>
-        <div class="card">
-            <h3>Direito Empresarial</h3>
-            <p>Consultoria para empresas, desde a constituição até a gestão jurídica.</p>
-            <a href="#" class="btn" onclick="openModal('modal3')">Saiba Mais</a>
-        </div>
-    </div>
+<!-- Corpo com imagem de fundo -->
+<div class="hero">
+    <h1>Bem-vindo ao nosso Escritório de Advocacia</h1>
+    <p>Fornecemos soluções jurídicas eficientes e confiáveis</p>
+</div>
 
-    <!-- Modal 1 -->
-    <div class="modal" id="modal1">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('modal1')">X</span>
-            <h2>Consultoria Jurídica</h2>
-            <p>A nossa consultoria jurídica oferece serviços especializados em diversas áreas do direito. Ajudamos a resolver seus problemas com eficiência e discrição.</p>
-        </div>
+<!-- Cards principais -->
+<div class="cards-container" id="servicos">
+    <div class="card">
+        <h3>Acompanhamento e Prevenção Jurídica</h3>
+        <p> Através de atendimento individual e personalizado com um método eficaz...</p>
+        <a href="#" class="btn" onclick="expandCard(1)">Saiba Mais</a>
     </div>
+    <div class="card">
+        <h3>Conciliação E Mediação Judicial E Privada</h3>
+        <p>Oferecemos também aos clientes, prestação de serviços em Mediação...</p>
+        <a href="#" class="btn" onclick="expandCard(2)">Saiba Mais</a>
+    </div>
+    <div class="card">
+        <h3>Localização e Consulta Cadastral</h3>
+        <p>Oferecemos serviço de localização de busca de empresas...
+        </p>
+        <a href="#" class="btn" onclick="expandCard(3)">Saiba Mais</a>
+    </div>
+</div>
 
-    <!-- Modal 2 -->
-    <div class="modal" id="modal2">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('modal2')">X</span>
-            <h2>Defesa Criminal</h2>
-            <p>Com nossa experiência em defesa criminal, trabalhamos para garantir que os seus direitos sejam respeitados em qualquer situação.</p>
-        </div>
+<!-- Cards Expandidos (Com Conteúdo Completo) -->
+<div class="expanded-card" id="expanded-card-1">
+    <div class="expanded-content">
+        <h2>Acompanhamento e Prevenção Jurídica</h2>
+        <p>Através de atendimento individual e personalizado com um método eficaz e inteligente, disponibilizamos aos nossos clientes 
+           informações e monitoramento para prevenção.
+           Que poderão interferir em suas atividades empresariais ou pessoais, no âmbito jurídico.
+           Com foco jurídico, nossos clientes ficam a par de todos os andamentos e demandas processuais. 
+           Assim ficam resguardados sobre todos os possíveis acontecimentos e solicitações jurídicas, com total orientação para como proceder.</p>
+        <a href="#" class="back-btn" onclick="goBack()">Voltar</a>
     </div>
+</div>
 
-    <!-- Modal 3 -->
-    <div class="modal" id="modal3">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('modal3')">X</span>
-            <h2>Direito Empresarial</h2>
-            <p>Ajudamos empresas a resolver questões jurídicas complexas e a se manter em conformidade com as regulamentações legais.</p>
-        </div>
+<div class="expanded-card" id="expanded-card-2">
+    <div class="expanded-content">
+        <h2>Conciliação E Mediação Judicial E Privada</h2>
+        <p>Oferecemos também aos  clientes, prestação de serviços em Mediação e Conciliação Judicial e Privada, 
+            com profissional capacitado pela OAB-ESA unidade Campinas, inscrito no CNJ e atuante no CEJUSC 
+            Campinas e na Comarca do Guarujá.
+        </p>
+        <a href="#" class="back-btn" onclick="goBack()">Voltar</a>
     </div>
+</div>
+
+<div class="expanded-card" id="expanded-card-3">
+    <div class="expanded-content">
+        <h2>Localização e Consulta Cadastral</h2>
+        <p>Oferecemos serviço de localização de busca de empresas e pessoas físicas. Entre outras funcionalidades, 
+            sistema cujo objetivo é localizar pessoas com seus respectivos endereços, além de empresas que estejam 
+            ou já estiveram em seus nomes.
+        </p>
+        <a href="#" class="back-btn" onclick="goBack()">Voltar</a>
+    </div>
+</div>
+
+<!-- Modals com Botão de Voltar -->
+<div class="modal" id="modal1">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('modal1')">X</span>
+        <h2>Acompanhamento e Prevenção Jurídica</h2>
+        <p>A nossa consultoria jurídica oferece serviços especializados...</p>
+        <a href="javascript:history.back()" class="back-btn">Voltar</a>
+    </div>
+</div>
+<div class="modal" id="modal2">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('modal2')">X</span>
+        <h2>Conciliação E Mediação Judicial E Privada</h2>
+        <p>Oferecemos aos clientes serviços em Mediação...</p>
+        <a href="javascript:history.back()" class="back-btn">Voltar</a>
+    </div>
+</div>
+<div class="modal" id="modal3">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('modal3')">X</span>
+        <h2>Localização e Consulta Cadastral</h2>
+        <p>Serviços de localização e busca de pessoas e empresas...</p>
+        <a href="javascript:history.back()" class="back-btn">Voltar</a>
+    </div>
+</div>
+
 
 <!-- Seção de Contato -->
 <section class="contact" id="contato">
     <h2>Entre em Contato</h2>
     <div class="contact-buttons">
-        <!-- Botão do WhatsApp -->
         <a href="https://wa.me/55XXXXXXXXX" class="contact-btn whatsapp" target="_blank">
             <i class="fab fa-whatsapp"></i> WhatsApp
         </a>
-        
-        <!-- Botão do Instagram -->
         <a href="https://instagram.com/seu_instagram" class="contact-btn instagram" target="_blank">
             <i class="fab fa-instagram"></i> Instagram 
         </a>
     </div>
 </section>
 
+<!-- Rodapé -->
+<footer>
+    <p>&copy; 2025 Escritório de Consultoria | Todos os direitos reservados</p>
+</footer>
 
-    <!-- Rodapé -->
-    <footer>
-        <p>&copy; 2024 Escritório de Advocacia | Todos os direitos reservados</p>
-    </footer>
+<!-- Scripts -->
+<script>
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = 'flex';
+    }
 
-    <!-- Scripts -->
-    <script>
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'flex';
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+    }
+
+    // Função para alternar o menu no dispositivo móvel
+    function toggleMenu() {
+        var navbar = document.getElementById("navbar");
+        navbar.classList.toggle("show");
+    }
+</script>
+
+<script>
+    // Função para mostrar o rodapé quando o usuário chegar ao final da página
+    window.onscroll = function() {
+        var footer = document.querySelector('footer');
+        var scrollPosition = window.scrollY + window.innerHeight; // Posição de rolagem + altura da janela
+        var scrollHeight = document.documentElement.scrollHeight; // Altura total do documento
+        
+        // Se o usuário chegou ao final da página, mostra o rodapé
+        if (scrollPosition >= scrollHeight - 1) {
+            footer.style.opacity = 1;  // Torna o rodapé visível
+        } else {
+            footer.style.opacity = 0;  // Deixa o rodapé invisível
         }
+    };
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
-    </script>
+    // Função para expandir o card
+function expandCard(cardId) {
+    // Esconde todos os cards principais
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => card.style.display = 'none');
+    
+    // Mostra o card expandido
+    const expandedCard = document.getElementById(`expanded-card-${cardId}`);
+    expandedCard.classList.add('show');
+}
+
+// Função para voltar à página principal (mostrar os cards novamente)
+function goBack() {
+    // Esconde todos os cards expandidos
+    const expandedCards = document.querySelectorAll('.expanded-card');
+    expandedCards.forEach(card => card.classList.remove('show'));
+
+    // Mostra todos os cards principais novamente
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => card.style.display = 'block');
+}
+
+</script>
+
+
 
 </body>
 </html>
-

@@ -11,47 +11,196 @@ body {
     line-height: 1.6;
 }
 
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 /* Navbar */
 nav {
-    display: flex; /* Usar flexbox para alinhar os itens */
-    justify-content: space-between; /* Espaça a logo e os itens do menu */
-    align-items: center; /* Alinha verticalmente os itens */
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100%; /* A navbar ocupa toda a largura da tela */
-    background-color: #333; /* Cor de fundo da navbar */
-    padding: 1rem 2rem; /* Adiciona preenchimento interno */
-    z-index: 1000;  /* Garante que a navbar fique acima de outros elementos */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra para destacar a navbar */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    position: fixed;  /* Torna a navbar fixa */
+    top: 0;           /* Fica no topo da página */
+    width: 100%;      /* Garante que a navbar ocupe toda a largura da página */
+    z-index: 1000;    /* Garante que a navbar fique acima de outros elementos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* Adiciona uma sombra para destacar a navbar */
+}
+
+body {
+    padding-top: 60px; /* Dá espaço no topo para a navbar fixa */
 }
 
 nav .logo img {
-    width: 70px; /* Tamanho da logo */
+    max-height: 40px;
 }
 
-/* Alinha os itens da lista à direita */
+nav .menu-hamburguer {
+    display: none; /* Esconde o menu hambúrguer em telas grandes */
+}
+
+nav .navbar {
+    display: flex;
+    list-style: none;
+}
+
+nav .navbar li {
+    margin: 0 15px;
+}
+
+nav .navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+nav .navbar a:hover {
+    color: #f1f1f1;
+}
+
+/* Menu hambúrguer */
+@media (max-width: 768px) {
+    nav .menu-hamburguer {
+        display: block; /* Exibe o menu hambúrguer em telas pequenas */
+    }
+
+    nav .navbar {
+        display: none; /* Esconde os itens da navbar por padrão em telas pequenas */
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #333;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    nav .navbar.show {
+        display: flex; /* Exibe o menu quando a classe show for adicionada */
+    }
+
+    nav .navbar li {
+        margin: 10px 0;
+    }
+}
+
+
+/* Logo */
+nav .logo img {
+    height: 50px;
+}
+
+/* Menu Principal */
 nav ul {
-    display: flex; /* Usar flexbox para alinhar os itens da lista */
-    list-style-type: none; /* Remove as bolinhas da lista */
-    margin-left: auto; /* Empurra os itens para o lado direito */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between; /* Alinha os itens da navbar de forma mais espaçada */
+    align-items: center;
 }
 
 nav ul li {
-    margin: 0 15px; /* Espaço entre os itens */
+    position: relative;
 }
 
+/* Estilo dos links (botões) da Navbar */
 nav ul li a {
-    text-decoration: none; /* Remove o sublinhado dos links */
-    color: white; /* Cor do texto dos links */
-    font-size: 1.1rem; /* Tamanho da fonte */
+    color: white;
+    padding: 12px 20px;  /* Aumentamos o padding para tornar o botão maior */
+    display: block;
+    font-size: 1.1rem;
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: background-color 0.3s ease; /* Suaviza a transição da cor de fundo */
 }
 
+/* Hover - Efeito ao passar o mouse */
 nav ul li a:hover {
-    color: #f4a261; /* Cor de destaque ao passar o mouse */
+    background-color: #f4a261; /* Cor de fundo quando o mouse passa por cima */
+    color: white; /* Garante que o texto permaneça branco */
+    text-transform: uppercase; /* Deixa o texto em maiúsculas para um efeito visual melhor */
 }
 
+/* Dropdown (menu suspenso) */
+nav .dropdown {
+    position: relative;
+}
 
+nav .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #444;
+    min-width: 160px;
+    z-index: 1;
+}
+
+nav .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+nav .dropdown-content a {
+    padding: 10px 20px;
+    text-align: left; /* Alinha o texto do menu suspenso à esquerda */
+}
+
+/* Estilo para o Menu Hamburguer */
+.menu-hamburguer {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-hamburguer i {
+    font-size: 30px;
+    color: #ffffff;
+}
+
+/* Responsividade para dispositivos móveis */
+@media screen and (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li a {
+        padding: 15px;
+        border-top: 1px solid #ddd;
+        font-size: 1.2rem; /* Aumenta o tamanho da fonte para facilitar a leitura */
+    }
+
+    nav .menu-hamburguer {
+        display: block;
+    }
+
+    /* Estilo do menu suspenso para mobile */
+    nav .dropdown-content {
+        position: relative;
+        background-color: #444;
+        width: 100%;
+    }
+
+    nav .dropdown-content a {
+        padding: 12px;
+        text-align: center;
+    }
+}
 
 /* Hero Section */
 .hero {
@@ -117,45 +266,119 @@ nav ul li a:hover {
 }
 
 
-/* Cards */
+/* Container dos cards */
 .cards-container {
     display: flex;
-    justify-content: space-around;
-    padding: 40px 20px;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 50px 0;
     flex-wrap: wrap;
+    padding: 0 10px; /* Adiciona um pequeno padding ao contêiner para evitar que o primeiro card saia da área visível */
+    box-sizing: border-box; /* Garante que o padding não afete o layout */
+}
+
+/* Estilos para os Cards */
+.cards-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 50px;
 }
 
 .card {
-    background: #f8f8f8;
+    background-color: #fff;
     padding: 20px;
-    margin: 15px;
     border-radius: 8px;
-    width: 280px;
+    width: 30%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
 .card h3 {
-    font-size: 1.6rem;
     margin-bottom: 10px;
 }
 
 .card p {
-    font-size: 1rem;
     margin-bottom: 20px;
 }
 
-.card .btn {
-    display: inline-block;
-    background-color: #f4a261;
-    padding: 10px 15px;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+/* Card Expandido */
+.expanded-card {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 20%;
+    width: 60%;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 }
 
-.card .btn:hover {
-    background-color: #e76f51;
+.expanded-card.show {
+    display: block;
+    opacity: 1;
 }
+
+/* Botão Voltar */
+.back-btn {
+    background-color: #f4a261;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #e07b35;
+}
+
+
+
+/* Botão "Saiba Mais" */
+.card .btn {
+    background-color: #fca157;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+/* Efeito de hover nos cards */
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Efeito de hover no botão */
+.card .btn:hover {
+    background-color: #e07b35;
+}
+
+/* Responsividade: cards adaptáveis */
+@media (max-width: 768px) {
+    .card {
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 100%;
+    }
+}
+
+
 
 /* Modal */
 .modal {
@@ -195,6 +418,71 @@ nav ul li a:hover {
     font-size: 1rem;
 }
 
+/* Estilo para o botão Voltar */
+.back-btn {
+    background-color: #f4a261; /* Cor suave para o botão */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #e07b35; /* Cor de fundo ao passar o mouse */
+}
+
+/* Modal - Transição suave */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none; /* Para que o modal não interaja com o usuário enquanto não estiver visível */
+    transition: opacity 0.3s ease; /* Suaviza a transição da opacidade */
+}
+
+.modal.show {
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Efeito de transição ao abrir e fechar o modal */
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    transform: scale(0.9); /* Começa com um tamanho reduzido */
+    transition: transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+    transform: scale(1); /* Quando o modal estiver visível, ele aumenta suavemente */
+}
+
+/* Botão de fechar */
+.modal-close {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+
 /* Estilo para a seção de contato */
 .contact {
     text-align: center; /* Alinha o título e os botões no centro */
@@ -214,7 +502,7 @@ nav ul li a:hover {
     align-items: center;
     padding: 12px 25px; /* Espaçamento interno */
     font-size: 1.2rem;
-    color: white; /* Cor do texto */
+    color: #ffffff; /* Cor do texto */
     border-radius: 30px; /* Bordas arredondadas */
     text-decoration: none; /* Remove o sublinhado do link */
     margin: 10px; /* Espaço entre os botões */
@@ -238,7 +526,7 @@ nav ul li a:hover {
 
 /* Efeito hover para os botões */
 .contact-btn:hover {
-    background-color: #f4d5bb; /* Cor de fundo quando o mouse passa por cima */
+    background-color: #fca157; /* Cor de fundo quando o mouse passa por cima */
     color: white; /* Cor do texto ao passar o mouse */
 }
 
@@ -252,17 +540,17 @@ nav ul li a:hover {
     color: white; /* Cor do ícone do Instagram quando o mouse passa por cima */
 }
 
-
-/* Rodapé */
 footer {
     background-color: #333;
     color: white;
     text-align: center;
     padding: 10px;
-    position: fixed;
+    position: relative; /* Tira o "fixed" para deixar ele no fluxo normal */
     width: 100%;
-    bottom: 0;
+    transition: opacity 0.5s ease-in-out; /* Vamos usar opacidade para transição */
+    opacity: 0; /* Inicialmente invisível */
 }
+
 
 /* Media Queries para Responsividade */
 
@@ -331,3 +619,8 @@ footer {
         font-size: 1rem;
     }
 }
+
+
+
+
+
